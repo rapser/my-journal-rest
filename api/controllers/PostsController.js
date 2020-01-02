@@ -1,9 +1,3 @@
-const post1 = {id:1, title:'titulo 1', body:'es el detalle'}
-const post2 = {id:2, title:'titulo 2', body:'es el detalle nuevo'}
-const post3 = {id:3, title:'titulo 3', body:'es el detalle repetido'}
-
-const allPosts = [post1, post2, post3]
-
 module.exports = {
     posts: async function(req, res){
         try{
@@ -17,7 +11,7 @@ module.exports = {
     create: function(req, res){
         const title = req.body.title
         const postBody = req.body.postBody
-        
+
         sails.log.debug(title + " " + postBody)
         Post.create({title: title, body: postBody}).exec(function(err){
 
