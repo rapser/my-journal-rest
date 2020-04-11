@@ -24,9 +24,10 @@ module.exports = {
         })
     },
 
-    findById: function(req, res){
+    findById: async function(req, res){
         const postId = req.param('postId')
 
+        const allPosts = await Post.find()
         const filteredPosts = allPosts.filter(p => { return p.id == postId})
 
         if (filteredPosts.length > 0){
@@ -42,6 +43,31 @@ module.exports = {
 
         await Post.destroy({id: postId})
         res.send('Eliminando post ahora')
+    },
+
+    update: function(req, res){
+        // sails.log.debug(req.param('postId'))
+        const postId = req.param('postId')
+
+        Post.update(postId, req.allParams()).fetch()
+        .then(function(post){
+
+            return res.send({
+                'success': true,
+                'message': 'Record updated',
+                'data': post
+            })
+        })
+
+        .catch(function(err){
+            sails.log.debug(err)
+            return res.send({
+                'success': false,
+                'message': 'no se puede actualizar'
+            })
+        })
     }
+
+
 
 }

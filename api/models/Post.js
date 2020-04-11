@@ -1,4 +1,7 @@
 module.exports = {
+
+    tableName: 'posts',
+
     attributes : {
         title: {
             type: 'string',

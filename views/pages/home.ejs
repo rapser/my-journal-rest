@@ -11,6 +11,30 @@
     }
 </style>
 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+
+    async function handleDeletePost(e){
+        console.log("Eliminando post...")
+        console.log(e.target.id)
+
+        const postId = e.target.id
+        const url = '/post/' + postId
+
+        try {
+            const response = await axios.delete(url)
+            console.log(response)
+            location.reload()
+        } catch (error) {
+            console.error(error.toString())
+            alert(error.toString())
+        }
+
+    }
+
+</script>
+
 <body style="background-color: rgb(235, 235, 235)">
     Esto es una lista de nuestros posts
 
@@ -26,6 +50,7 @@
             <div class='post-container'>
                 <div><%= p.title %></div>
                 <div><%= p.body %></div>
+                <button id='<%= p.id %>' onclick="handleDeletePost(event)">Delete</button>
             </div>
         <% }) %>
 
