@@ -8,21 +8,21 @@ module.exports = {
         }
     },
 
-    create: function(req, res){
-        const title = req.body.title
-        const postBody = req.body.postBody
+    // create: function(req, res){
+    //     const title = req.body.title
+    //     const postBody = req.body.postBody
 
-        sails.log.debug(title + " " + postBody)
-        Post.create({title: title, body: postBody}).exec(function(err){
+    //     sails.log.debug(title + " " + postBody)
+    //     Post.create({title: title, body: postBody}).exec(function(err){
 
-            if (err){
-                return res.serverError(err.toString())
-            }
+    //         if (err){
+    //             return res.serverError(err.toString())
+    //         }
 
-            console.log("Creacion finalizada de objeto post")
-            return res.redirect('/home')
-        })
-    },
+    //         console.log("Creacion finalizada de objeto post")
+    //         return res.redirect('/home')
+    //     })
+    // },
 
     findById: async function(req, res){
         const postId = req.param('postId')
@@ -38,12 +38,12 @@ module.exports = {
 
     },
 
-    delete: async function(req, res){
-        const postId = req.param('postId')
+    // delete: async function(req, res){
+    //     const postId = req.param('postId')
 
-        await Post.destroy({id: postId})
-        res.send('Eliminando post ahora')
-    },
+    //     await Post.destroy({id: postId})
+    //     res.send('Eliminando post ahora')
+    // },
 
     update: function(req, res){
         // sails.log.debug(req.param('postId'))

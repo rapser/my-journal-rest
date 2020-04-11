@@ -7,7 +7,7 @@ module.exports = {
             type: 'string',
             required: true
         },
-        body:{
+        postBody:{
             type: 'string',
             required: true
         }
