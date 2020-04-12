@@ -1,7 +1,16 @@
-# my-journal
+# journal_rest
 
 a [Sails v1](https://sailsjs.com) application
 
+# Instalación
+
++ Generamos un proyecto vacio de sails por medio del terminal
++ Si no tenemos el sails instalado en nuestro equipo ingresamos: npm install sails -g
++ Esto genera un proyecto de tipo sails: sails generate new my_journal
++ Abrimos la carpeta con nuestro editor de codigo favorito, en mi caso el Visual Studio Code
++ Para ejecutar el proyecto utilizamos el codigo: node app.js
++ Cuando empezemos a codificar cada vez que realizemos un cambio por lo general vamos a tener que detener y reiniciar el proyecto. Si queremos que esto sea de forma automatica tenemos que instalar nodemon. Luego en vez de usar node app.js simplemente escribimos nodemon y enter.
++ Sails provee su ORM llamado Waterline este a su vez se conecta a varias bases de datos (MySQL, PostgreSQL, MongoDB, etc)
 
 ### Links
 
